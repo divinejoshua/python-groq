@@ -3,6 +3,8 @@ from decouple import config
 
 client = Groq(api_key=config("GROQ_API_KEY"))
 
+user_prompt = input("Enter your prompt here: ")
+
 chat_completion = client.chat.completions.create(
     #
     # Required parameters
@@ -18,7 +20,7 @@ chat_completion = client.chat.completions.create(
         # Set a user message for the assistant to respond to.
         {
             "role": "user",
-            "content": "create a search engine page using next js and tailwind. Should have a textbox, search button, Suggestion box too",
+            "content": user_prompt,
         }
     ],
 
